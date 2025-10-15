@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zeph Quotes</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Elegant fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Zeph Quotes</h1>
+    <p class="tagline">A classic quote board with modern polish</p>
+  </header>
+
+  <main>
+    <section class="quote-area" aria-label="Quote">
+      <div class="quote-box">
+        <blockquote>
+          <p id="quote-text">“Click the button to get inspired.”</p>
+          <footer id="quote-author">— Zeph</footer>
+        </blockquote>
+      </div>
+
+      <div class="controls">
+        <label for="category" class="visually-hidden">Category</label>
+        <select id="category" aria-label="Select quote category">
+          <option value="motivational">Motivational</option>
+          <option value="love">Love</option>
+          <option value="life">Life</option>
+          <option value="success">Success</option>
+          <option value="funny">Funny</option>
+          <option value="wisdom">Wisdom</option>
+          <option value="discipline">Discipline</option>
+          <option value="peace">Peace</option>
+          <option value="courage">Courage</option>
+          <option value="idioms">Idioms</option>
+          <option value="cultural">Cultural</option>
+          <option value="educational">Educational</option>
+          <option value="religious">Religious</option>
+          <option value="custom">Custom</option>
+        </select>
+
+        <div class="button-group">
+          <button id="prev-quote" type="button" class="control-btn" title="Go to previous quote">
+            <i class="fas fa-history icon"></i>
+          </button>
+          <button id="new-quote" type="button" class="primary-btn">New Quote</button>
+          <button id="copy-quote" type="button" class="control-btn" title="Copy quote">
+            <i class="fas fa-copy icon"></i>
+          </button>
+          <button id="share-whatsapp" type="button" class="control-btn" title="Share on WhatsApp">
+            <i class="fab fa-whatsapp icon"></i>
+          </button>
+        </div>
+      </div>
+
+      <div id="custom-area" class="custom-area" hidden>
+        <label for="custom-quote" class="visually-hidden">Custom quote</label>
+        <textarea id="custom-quote" placeholder="Type your custom quote here..." rows="3"></textarea>
+        <input id="custom-author" type="text" placeholder="Author (optional)" />
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>Made with ❤️ by ZEPH</p>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
