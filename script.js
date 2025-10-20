@@ -7,125 +7,82 @@ let quoteHistory = [];
 let currentHistoryIndex = -1;
 
 const QUOTES = {
-  motivational: [
-    { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
-    { text: "It always seems impossible until it's done.", author: "Nelson Mandela" },
-    { text: "Start where you are. Use what you have. Do what you can.", author: "Arthur Ashe" },
-    { text: "Small daily improvements are the key to staggering long-term results.", author: "James Clear" },
-    { text: "If you want to lift yourself up, lift up someone else.", author: "Booker T. Washington" },
-    { text: "Motivation is what gets you started. Habit is what keeps you going.", author: "Jim Ryun" },
-    { text: "If at first you don’t succeed, then skydiving definitely isn’t for you.", author: "Steven Wright" }, // humor
-    { text: "The elevator to success is out of order. You’ll have to use the stairs, one step at a time.", author: "Joe Girard" }, // humor
-    { text: "Push yourself, because no one else is going to do it for you.", author: "Unknown" },
-    { text: "Don’t watch the clock; do what it does. Keep going.", author: "Sam Levenson" }
-  ],
-  love: [
-    { text: "Love is composed of a single soul inhabiting two bodies.", author: "Aristotle" },
-    { text: "Where there is love there is life.", author: "Mahatma Gandhi" },
-    { text: "To love and be loved is to feel the sun from both sides.", author: "David Viscott" },
-    { text: "Love doesn’t make the world go round. Love is what makes the ride worthwhile.", author: "Franklin P. Jones" },
-    { text: "Gravitation is not responsible for people falling in love.", author: "Albert Einstein" }, // humor
-    { text: "We accept the love we think we deserve.", author: "Stephen Chbosky" },
-    { text: "Love is a friendship set to music.", author: "Joseph Campbell" },
-    { text: "If you can’t love yourself, how in the hell you gonna love somebody else?", author: "RuPaul" }
-  ],
   life: [
     { text: "Life is what happens when you're busy making other plans.", author: "John Lennon" },
-    { text: "Do not go where the path may lead, go instead where there is no path and leave a trail.", author: "Ralph Waldo Emerson" },
     { text: "The purpose of our lives is to be happy.", author: "Dalai Lama" },
-    { text: "Life is short, smile while you still have teeth.", author: "Unknown" }, // humor
     { text: "In three words I can sum up everything I've learned about life: it goes on.", author: "Robert Frost" },
     { text: "Life is like riding a bicycle. To keep your balance, you must keep moving.", author: "Albert Einstein" },
-    { text: "Good friends, good books, and a sleepy conscience: this is the ideal life.", author: "Mark Twain" },
-    { text: "Life is either a daring adventure or nothing at all.", author: "Helen Keller" }
+    { text: "We do not remember days, we remember moments.", author: "Cesare Pavese" },
+    { text: "To live is the rarest thing in the world. Most people exist, that is all.", author: "Oscar Wilde" },
+    { text: "The unexamined life is not worth living.", author: "Socrates" },
+    { text: "Life shrinks or expands in proportion to one's courage.", author: "Anais Nin" },
+    { text: "You have within you right now, everything you need to deal with whatever the world can throw at you.", author: "Brian Tracy" },
+    { text: "When we are no longer able to change a situation, we are challenged to change ourselves.", author: "Viktor E. Frankl" },
+    { text: "Life is a succession of lessons which must be lived to be understood.", author: "Ralph Waldo Emerson" }
   ],
-  success: [
-    { text: "Success usually comes to those who are too busy to be looking for it.", author: "Henry David Thoreau" },
-    { text: "Don't aim for success if you want it; just do what you love.", author: "Dale Carnegie" },
-    { text: "Success is not the key to happiness. Happiness is the key to success.", author: "Albert Schweitzer" },
-    { text: "Success is stumbling from failure to failure with no loss of enthusiasm.", author: "Winston Churchill" },
-    { text: "I find that the harder I work, the more luck I seem to have.", author: "Thomas Jefferson" },
-    { text: "Behind every successful man is a surprised woman.", author: "Maryon Pearson" }, // humor
-    { text: "The road to success is dotted with many tempting parking spaces.", author: "Will Rogers" }, // humor
-    { text: "Opportunities don't happen. You create them.", author: "Chris Grosser" }
-  ],
-  funny: [
-    { text: "I am so clever that sometimes I don't understand a single word of what I am saying.", author: "Oscar Wilde" },
-    { text: "If you think you are too small to make a difference, try sleeping with a mosquito.", author: "Dalai Lama" },
-    { text: "I used to think I was indecisive, but now I'm not so sure.", author: "Unknown" },
-    { text: "I'm not arguing, I'm just explaining why I'm right.", author: "Unknown" },
-    { text: "My bed is a magical place where I suddenly remember everything I forgot to do.", author: "Unknown" },
-    { text: "Why don’t scientists trust atoms? Because they make up everything!", author: "Unknown" },
-    { text: "If at first you don’t succeed, then skydiving definitely isn’t for you.", author: "Steven Wright" }
-  ],
-  wisdom: [
-    { text: "Knowing yourself is the beginning of all wisdom.", author: "Aristotle" },
-    { text: "The only true wisdom is in knowing you know nothing.", author: "Socrates" },
-    { text: "Wise men speak because they have something to say; fools because they have to say something.", author: "Plato" },
-    { text: "A wise man can learn more from a foolish question than a fool can learn from a wise answer.", author: "Bruce Lee" },
-    { text: "If you think you are too small to make a difference, try sleeping with a mosquito.", author: "Dalai Lama" }, // humor
-    { text: "The fool doth think he is wise, but the wise man knows himself to be a fool.", author: "William Shakespeare" },
-    { text: "Turn your wounds into wisdom.", author: "Oprah Winfrey" }
-  ],
-  discipline: [
-    { text: "We must all suffer one of two things: the pain of discipline or the pain of regret.", author: "Jim Rohn" },
-    { text: "Discipline is choosing between what you want now and what you want most.", author: "Abraham Lincoln (attributed)" },
-    { text: "Discipline is the bridge between goals and accomplishment.", author: "Jim Rohn" },
-    { text: "The future depends on what you do today.", author: "Mahatma Gandhi" },
-    { text: "Discipline is remembering what you want.", author: "David Campbell" },
-    { text: "I could agree with you but then we’d both be wrong.", author: "Russell Lynes" }, // humor
-    { text: "The difference between try and triumph is just a little umph!", author: "Marvin Phillips" }
-  ],
-  peace: [
-    { text: "Peace begins with a smile.", author: "Mother Teresa" },
-    { text: "Peace cannot be kept by force; it can only be achieved by understanding.", author: "Albert Einstein" },
-    { text: "When the power of love overcomes the love of power, the world will know peace.", author: "Jimi Hendrix" },
-    { text: "If you want peace, you don’t talk to your friends. You talk to your enemies.", author: "Desmond Tutu" },
-    { text: "If you want to make peace with your enemy, you have to work with your enemy. Then he becomes your partner.", author: "Nelson Mandela" },
-    { text: "Peace: it does not mean to be in a place where there is no noise, trouble, or hard work. It means to be in the midst of those things and still be calm in your heart.", author: "Unknown" }
-  ],
-  courage: [
-    { text: "Courage is grace under pressure.", author: "Ernest Hemingway" },
-    { text: "Courage doesn't always roar. Sometimes courage is the quiet voice at the end of the day saying, 'I will try again tomorrow.'", author: "Mary Anne Radmacher" },
-    { text: "You cannot swim for new horizons until you have courage to lose sight of the shore.", author: "William Faulkner" },
-    { text: "Courage is being scared to death, but saddling up anyway.", author: "John Wayne" },
-    { text: "If you’re going through hell, keep going.", author: "Winston Churchill" },
-    { text: "Courage is knowing what not to fear.", author: "Plato" },
-    { text: "If at first you don’t succeed, skydiving is not for you.", author: "Steven Wright" } // humor
-  ],
-  idioms: [
-    { text: "Break the ice.", author: "(Idiom)" },
-    { text: "Hit the nail on the head.", author: "(Idiom)" },
-    { text: "Let the cat out of the bag.", author: "(Idiom)" },
-    { text: "Bite the bullet.", author: "(Idiom)" },
-    { text: "Kick the bucket.", author: "(Idiom, not recommended!)" }, // humor
-    { text: "Spill the beans.", author: "(Idiom)" },
-    { text: "When pigs fly.", author: "(Idiom)" }
-  ],
+  funny: [], // jokes will be fetched at runtime from an API
   cultural: [
     { text: "Culture is the widening of the mind and of the spirit.", author: "Jawaharlal Nehru" },
     { text: "A nation's culture resides in the hearts and in the soul of its people.", author: "Mahatma Gandhi" },
-    { text: "Culture is not just an accessory, it’s the main outfit.", author: "Unknown" }, // humor
-    { text: "Preservation of one's own culture does not require contempt or disrespect for other cultures.", author: "Cesar Chavez" },
     { text: "Culture is the arts elevated to a set of beliefs.", author: "Thomas Wolfe" },
-    { text: "Every culture has its own way of making you feel at home.", author: "Unknown" }
-  ],
-  educational: [
-    { text: "Education is the passport to the future, for tomorrow belongs to those who prepare for it today.", author: "Malcolm X" },
-    { text: "The roots of education are bitter, but the fruit is sweet.", author: "Aristotle" },
-    { text: "Education is the most powerful weapon which you can use to change the world.", author: "Nelson Mandela" },
-    { text: "The beautiful thing about learning is that no one can take it away from you.", author: "B.B. King" },
-    { text: "Education is what remains after one has forgotten what one has learned in school.", author: "Albert Einstein" }, // humor
-    { text: "The mind is not a vessel to be filled, but a fire to be kindled.", author: "Plutarch" },
-    { text: "Education is not preparation for life; education is life itself.", author: "John Dewey" }
+    { text: "The purpose of art is washing the dust of daily life off our souls.", author: "Pablo Picasso" },
+    { text: "Stories are the communal currency of humanity.", author: "Tahir Shah" },
+    { text: "We are shaped and fashioned by what we love.", author: "Johann Wolfgang von Goethe" },
+    { text: "A people without the knowledge of their past history, origin and culture is like a tree without roots.", author: "Marcus Garvey" },
+    { text: "From the Japanese tea ceremony to West African drumming, every ritual carries memory.", author: "Unknown" },
+    { text: "The languages of the world are a treasure trove of perspective and wisdom.", author: "Unknown" },
+    { text: "To understand another culture is to expand the circumference of your compassion.", author: "Unknown" },
+    { text: "Dance, food, and story: culture breathes through daily life and ceremony.", author: "Unknown" },
+    { text: "From folk tales to national anthems, culture preserves what matters.", author: "Unknown" }
   ],
   religious: [
-    { text: "Faith is taking the first step even when you don't see the whole staircase.", author: "Martin Luther King Jr." },
-    { text: "Do unto others as you would have them do unto you.", author: "Biblical (Golden Rule)" },
-    { text: "God helps those who help themselves.", author: "Benjamin Franklin" },
-    { text: "Prayer is not asking. It is a longing of the soul.", author: "Mahatma Gandhi" },
-    { text: "When you focus on being a blessing, God makes sure that you are always blessed in abundance.", author: "Joel Osteen" },
-    { text: "If God wanted us to bend over, he’d put diamonds on the floor.", author: "Joan Rivers" } // humor
+    { text: "Do not dwell in the past, do not dream of the future, concentrate the mind on the present moment.", author: "Buddha", translation: null },
+    { text: "You have the right to work, but never to the fruit of work.", author: "Bhagavad Gita", translation: "Karmanye vadhikaraste ma phaleshu kadachana" },
+    { text: "And whoever saves one life, it is as if he had saved mankind entirely.", author: "Quran 5:32", translation: null },
+    { text: "Love your neighbor as yourself.", author: "Jesus (Christian scripture)", translation: null },
+    { text: "If I am not for myself, who will be for me? And if I am only for myself, what am I?", author: "Hillel (Jewish sage)", translation: null },
+    { text: "There is but one religion, though there are a hundred versions of it.", author: "Baha'u'llah", translation: null },
+    { text: "Recognize all humanity as one.", author: "Guru Nanak", translation: null },
+    { text: "Let the beauty of what you love be what you do.", author: "Rumi", translation: null },
+    { text: "The Tao that can be told is not the eternal Tao.", author: "Lao Tzu", translation: null },
+    { text: "Do not be daunted by the enormity of the world's grief. Act justly, now.", author: "Jewish proverb", translation: null },
+    { text: "True worship is not in outward show, but in purity of heart.", author: "Islamic tradition", translation: null },
+    { text: "All that we are is the result of what we have thought.", author: "Buddha", translation: null },
+    { text: "The supreme religion is to do good to others.", author: "Zoroastrian proverb", translation: null }
+  ],
+  anime: [
+    { text: "People's lives don't end when they die, it ends when they lose faith.", author: "Itachi Uchiha, Naruto" },
+    { text: "No matter how deep the night, it always turns to day, eventually.", author: "Brook, One Piece" },
+    { text: "If you don’t take risks, you can’t create a future.", author: "Monkey D. Luffy, One Piece" },
+    { text: "Whatever you lose, you’ll find it again. But what you throw away forever is never yours to find.", author: "Kenshin Himura, Rurouni Kenshin" },
+    { text: "I want to see the world. I want to see that blue sky, the sea—and I want to know what it feels like to be free.", author: "Edward Elric, Fullmetal Alchemist" },
+    { text: "No matter how many people you may save, they always end up alone.", author: "Rintarou Okabe, Steins;Gate" },
+    { text: "Power comes in response to a need, not a desire. You have to create that need.", author: "Goku (paraphrase), Dragon Ball Z" },
+    { text: "When people are protecting something truly special to them, they truly can become as strong as they can be.", author: "Naruto Uzumaki, Naruto" },
+    { text: "A lesson without pain is meaningless. That’s because no one can gain without sacrificing something.", author: "Edward Elric, Fullmetal Alchemist" },
+    { text: "It’s not the face that makes someone a monster; it’s the choices they make with their lives.", author: "Naruto" },
+    { text: "To know sorrow is not terrifying. What is terrifying is to know you cannot go back to happiness you could have.", author: "Mikaela Hyakuya, Seraph of the End" },
+    { text: "Even the smallest light dispels the deepest darkness.", author: "Anime proverb" }
+  ],
+  cosmic: [
+    { text: "We are made of star stuff.", author: "Carl Sagan" },
+    { text: "The cosmos is within us. We are made of star-stuff. We are a way for the cosmos to know itself.", author: "Carl Sagan" },
+    { text: "Somewhere, something incredible is waiting to be known.", author: "Carl Sagan" },
+    { text: "The nitrogen in our DNA, the calcium in our teeth, the iron in our blood, the carbon in our apple pies were made in the interiors of collapsing stars.", author: "Carl Sagan" },
+    { text: "Look up at the stars and not down at your feet.", author: "Stephen Hawking" },
+    { text: "We are a way for the universe to know itself.", author: "Carl Sagan" },
+    { text: "The universe is under no obligation to make sense to you.", author: "Neil deGrasse Tyson" },
+    { text: "The more I study the universe, the more I am amazed at the harmony of things.", author: "Unknown" },
+    { text: "There is a voice in the cosmos calling us to wonder.", author: "Unknown" },
+    { text: "The heavens declare the glory of the Creator; our lives are chapters within that vastness.", author: "Pastor Obed Obeng Addai (CCI) - paraphrase" },
+    { text: "You are a child of the universe, no less than the trees and the stars.", author: "Max Ehrmann" }
+  ],
+  zeph: [
+    { text: "What you call failure is often the starting point of a new courage.", author: "Zeph" },
+    { text: "To stand in truth is to stand alone for a moment until others find the courage to stand with you.", author: "Zeph" },
+    { text: "The gravity of a quiet life is sometimes heavier than the loudest victory.", author: "Zeph" },
+    { text: "When you watch the horizon long enough, you realize your smallness—and your power.", author: "Zeph" },
+    { text: "A single honest thought can rearrange the universe of your day.", author: "Zeph" }
   ]
 };
 
@@ -204,6 +161,27 @@ function getPreviousQuote() {
   }
 }
 
+// elements for translation area
+const translationArea = document.getElementById('translation-area');
+const translationText = document.getElementById('translation-text');
+const toggleTranslationBtn = document.getElementById('toggle-translation');
+
+function showTranslation(quote) {
+  if (!quote || !quote.translation) {
+    translationArea.hidden = true;
+    return;
+  }
+  translationText.textContent = quote.translation;
+  translationArea.hidden = false;
+}
+
+toggleTranslationBtn && toggleTranslationBtn.addEventListener('click', () => {
+  // toggle visibility of translation text
+  if (!translationArea) return;
+  const isHidden = translationText.style.display === 'none' || !translationText.style.display;
+  translationText.style.display = isHidden ? 'block' : 'none';
+});
+
 async function copyQuote() {
   const text = quoteText.textContent;
   const author = quoteAuthor.textContent;
@@ -238,21 +216,49 @@ categorySelect.addEventListener('change', () => {
 newQuoteBtn.addEventListener('click', () => {
   const cat = categorySelect.value;
   let quote;
-  
   if (cat === 'custom') {
     const text = (customQuoteField.value || '').trim();
     const author = (customAuthorField.value || '').trim();
     if (!text) {
       quote = { text: 'Please enter a custom quote to display.', author: '' };
-    } else {
-      quote = { text, author };
+      renderQuote(quote);
+      addToHistory(quote);
+      showTranslation(quote);
+      return;
     }
-  } else {
-    quote = pickRandomQuote(cat);
+    quote = { text, author };
+    renderQuote(quote);
+    addToHistory(quote);
+    showTranslation(quote);
+    return;
   }
-  
+
+  if (cat === 'funny') {
+    // fetch a random joke from Official Joke API
+    fetch('https://official-joke-api.appspot.com/random_joke')
+      .then(res => res.json())
+      .then(j => {
+        const jokeText = `${j.setup} ${j.punchline}`;
+        const joke = { text: jokeText, author: '—' };
+        renderQuote(joke);
+        addToHistory(joke);
+        showTranslation(joke);
+      })
+      .catch(err => {
+        console.error('Failed to fetch joke:', err);
+        const fallback = { text: 'Could not load a joke right now. Try again later.', author: '' };
+        renderQuote(fallback);
+        addToHistory(fallback);
+        showTranslation(fallback);
+      });
+    return;
+  }
+
+  // default categories
+  quote = pickRandomQuote(cat);
   renderQuote(quote);
   addToHistory(quote);
+  showTranslation(quote);
 });
 
 prevQuoteBtn.addEventListener('click', getPreviousQuote);
@@ -262,7 +268,7 @@ shareWhatsAppBtn.addEventListener('click', shareOnWhatsApp);
 // initialize with a quote for the default selection
 (function init() {
   // ensure elements have transition defined in CSS (see style.css)
-  const initial = pickRandomQuote(categorySelect.value || 'motivational');
+  const initial = pickRandomQuote(categorySelect.value || 'life');
   // initially show without awkward flash by setting opacity 0 then rendering
   quoteText.style.opacity = 0;
   quoteAuthor.style.opacity = 0;

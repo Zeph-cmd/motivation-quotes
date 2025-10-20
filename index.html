@@ -28,19 +28,13 @@
       <div class="controls">
         <label for="category" class="visually-hidden">Category</label>
         <select id="category" aria-label="Select quote category">
-          <option value="motivational">Motivational</option>
-          <option value="love">Love</option>
           <option value="life">Life</option>
-          <option value="success">Success</option>
           <option value="funny">Funny</option>
-          <option value="wisdom">Wisdom</option>
-          <option value="discipline">Discipline</option>
-          <option value="peace">Peace</option>
-          <option value="courage">Courage</option>
-          <option value="idioms">Idioms</option>
           <option value="cultural">Cultural</option>
-          <option value="educational">Educational</option>
           <option value="religious">Religious</option>
+          <option value="anime">Anime</option>
+          <option value="cosmic">Cosmic</option>
+          <option value="zeph">Zeph</option>
           <option value="custom">Custom</option>
         </select>
 
@@ -62,6 +56,12 @@
         <label for="custom-quote" class="visually-hidden">Custom quote</label>
         <textarea id="custom-quote" placeholder="Type your custom quote here..." rows="3"></textarea>
         <input id="custom-author" type="text" placeholder="Author (optional)" />
+      </div>
+
+      <div id="translation-area" class="translation-area" hidden>
+        <label class="visually-hidden" for="translation-text">Translation</label>
+        <p id="translation-text"></p>
+        <button id="toggle-translation" class="control-btn" type="button">Show Original / Translation</button>
       </div>
     </section>
 
